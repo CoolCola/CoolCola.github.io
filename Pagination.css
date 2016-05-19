@@ -1,0 +1,14 @@
+.pagination{font:12px/1 "微软雅黑","sans-serif";;}
+.pagination a{text-decoration: none;color:#333;}
+.pagination a,.pagination span{
+	border:1px solid #ccc;
+	padding:5px 10px;
+	margin-left:5px;
+}
+.pagination .active{
+	border:2px solid orange;
+}
+.pagination input[type="text"]{
+	width:30px;
+	text-align: center;
+}
