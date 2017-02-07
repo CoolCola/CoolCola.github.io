@@ -37,6 +37,7 @@ div[data-class=pullDownId]>span.time{
     display:inline-block;
     padding:0 20px;
     overflow:hidden;
+    font-size: 16px;
 }
 div[data-class=pullUpId]>span.inlineblock-span>i, 
 div[data-class=pullDownId]>span.inlineblock-span>i,
@@ -44,22 +45,27 @@ div[data-class=clickDownId]>span.inlineblock-span>i{
     display:inline-block;
     margin-right:3px;
 }
-div[data-class=pullUpId]>span.inlineblock-span>i::before, 
-div[data-class=pullDownId]>span.inlineblock-span>i::before,
-div[data-class=clickDownId]>span.inlineblock-span>i::before{
+div[data-class=pullUpId]>span.inlineblock-span>i, 
+div[data-class=pullDownId]>span.inlineblock-span>i,
+div[data-class=clickDownId]>span.inlineblock-span>i{
     position:relative;
-    display:block;
-    font:normal 20px/28px 'iconfont';
-    content:'\e674';
+    display:inline-block;
+    /*font:normal 20px/28px 'iconfont';
+    content:'\e674';*/
+    width: 20px;
+    height: 20px;
+    background: url(pull-icon@2x.png) 0 0 no-repeat;
+    background-size: 20px 40px;
+    vertical-align: middle;
 }
-div[data-class=pullUpId]>span.inlineblock-span>i.icon-up::before,
-div[data-class=pullDownId]>span.inlineblock-span>i.icon-up::before{
-    -webkit-animation:refreshRotateUp 0.3s forwards;
-    -moz-animation:refreshRotateUp 0.3s forwards;
-    -ms-animation:refreshRotateUp 0.3s forwards;
-    -o-animation:refreshRotateUp 0.3s forwards;
-    animation:refreshRotateUp 0.3s forwards;
-    content:'\e674';
+div[data-class=pullUpId]>span.inlineblock-span>i.icon-up,
+div[data-class=pullDownId]>span.inlineblock-span>i.icon-up{
+    -webkit-animation:refreshRotateDown 0.3s forwards;
+    -moz-animation:refreshRotateDown 0.3s forwards;
+    -ms-animation:refreshRotateDown 0.3s forwards;
+    -o-animation:refreshRotateDown 0.3s forwards;
+    animation:refreshRotateDown 0.3s forwards;
+    /*content:'\e674';*/
 }
 @-webkit-keyframes refreshRotateUp{
     0%{
@@ -141,13 +147,13 @@ div[data-class=pullDownId]>span.inlineblock-span>i.icon-up::before{
         transform:-ms-rotate(0);
     }
 }
-div[data-class=pullUpId]>span.inlineblock-span>i.icon-down::before,
-div[data-class=pullDownId]>span.inlineblock-span>i.icon-down::before{
-    -webkit-animation:refreshRotateDown 0.3s forwards;
-    -moz-animation:refreshRotateDown 0.3s forwards;
-    -ms-animation:refreshRotateDown 0.3s forwards;
-    -o-animation:refreshRotateDown 0.3s forwards;
-    animation:refreshRotateDown 0.3s forwards;
+div[data-class=pullUpId]>span.inlineblock-span>i.icon-down,
+div[data-class=pullDownId]>span.inlineblock-span>i.icon-down{
+    -webkit-animation:refreshRotateUp 0.3s forwards;
+    -moz-animation:refreshRotateUp 0.3s forwards;
+    -ms-animation:refreshRotateUp 0.3s forwards;
+    -o-animation:refreshRotateUp 0.3s forwards;
+    animation:refreshRotateUp 0.3s forwards;
 }
 @-webkit-keyframes refreshRotateDown{
     0%{
@@ -229,14 +235,20 @@ div[data-class=pullDownId]>span.inlineblock-span>i.icon-down::before{
         transform:-ms-rotate(-180deg);
     }
 }
-div[data-class=pullUpId]>span.inlineblock-span>i.icon-loading::before,
-div[data-class=pullDownId]>span.inlineblock-span>i.icon-loading::before{
+div[data-class=pullUpId]>span.inlineblock-span>i.icon-loading,
+div[data-class=pullDownId]>span.inlineblock-span>i.icon-loading{
     top:2px;
     -webkit-animation:loadingInfinite infinite 1s;
     -moz-animation:loadingInfinite infinite 1s;
     -ms-animation:loadingInfinite infinite 1s;
     animation:loadingInfinite infinite 1s;
-    content:'\e669';
+    /*content:'\e669';*/
+    content:" ";
+    width: 20px;
+    height: 20px;
+    background: url(pull-icon@2x.png)  0 -20px no-repeat;
+    background-size: 20px 40px;
+    vertical-align: middle;
 }
 /* define */
 /* 淡入 */

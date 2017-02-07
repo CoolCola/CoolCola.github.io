@@ -9,9 +9,9 @@
 <link rel="stylesheet" type="text/css" href="../src/css/base.css" />
 <link rel="stylesheet" type="text/css" href="../dist/css/listloading.min.css" />
 <script src="../src/jslib/require.js"></script>
-<script src="iconfont.js"></script>
+<!-- <script src="iconfont.js"></script> -->
 <script>
-
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 require(['zepto', 'iscroll', 'listloading'], function(){
     var Listloading = require('listloading');
     var m = 3;
@@ -24,7 +24,7 @@ require(['zepto', 'iscroll', 'listloading'], function(){
     // 模板
     var createHtml = function(){
         var __html = '', now, x;
-        for(var i = 0; i < 10; i++){
+        for(var i = 0; i < 15; i++){
             now = new Date().getTime();
             now = new Date(now + i*1000000);
             x = Math.random().toString().substring(2,3);
@@ -49,7 +49,11 @@ require(['zepto', 'iscroll', 'listloading'], function(){
                 $('#order-list').append(__html);
             }
             // 数据加载完毕需要返回 end为true则为全部数据加载完毕
-            cb(flg);
+            setTimeout(function(){
+                alert();
+                cb(flg);
+            },5000);
+            
             
         },
         pullDownAction : function(cb, flg){  // 下拉刷新
@@ -68,7 +72,8 @@ require(['zepto', 'iscroll', 'listloading'], function(){
         // iscroll的API 
         iscrollOptions: {
             // scrollbars: true   // 显示iscroll滚动条
-        }
+        },
+        pullUpActionStr:"toast"
     });
 
     // 点击事件
