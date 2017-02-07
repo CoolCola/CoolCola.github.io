@@ -24,7 +24,7 @@ require(['zepto', 'iscroll', 'listloading'], function(){
     // 模板
     var createHtml = function(){
         var __html = '', now, x;
-        for(var i = 0; i < 2; i++){
+        for(var i = 0; i < 10; i++){
             now = new Date().getTime();
             now = new Date(now + i*1000000);
             x = Math.random().toString().substring(2,3);
