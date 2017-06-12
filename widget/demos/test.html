@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="listloading.css">
+	<script src="jquery-2.1.4.min.js"></script>
+	<script src="iscroll.min.js"></script>
+	<script src="listloading.js"></script>
+</head>
+<body>
+	<div id="listloading">
+	    <div>
+	        <ul id="order-list">
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li id="target">1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+
+	        	<li>1</li>
+	        	<li>1</li>
+	        	<li>1</li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+	<script type="text/javascript">
+	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		var hei = $(window).height();
+		// 创建iscroll之前必须要先设置父元素的高度，否则无法拖动iscroll
+		$('#listloading, .listloadingClass').height(hei);
+		var listloading = new Listloading('#listloading', {
+		    disableTime: false,  // 是否需要显示时间
+		    pullUpAction : function(cb,flag){   // 上拉加载更多
+		    	var flag = true;
+		    	// flag 为true 第一次加载
+		    	    if (flag) {
+		    	        // dosomething...
+		    	    } else {
+		    	    	setTimeout(function(){
+		    	    		alert("finish");
+		    	    	},2000);
+		    	    	console.log("上拉加载更多");
+		    	    }
+		        
+		        // 数据加载完毕需要返回 end为true则为全部数据加载完毕
+		        cb(flag);
+
+		    },
+		    pullDownAction : function(cb,flag){  // 下拉刷新
+		        // true则为默认加载 false为下拉刷新
+		        if (flag) {
+		            
+		        } else {
+		        	setTimeout(function(){
+		        		alert("finish");
+		        	},2000);
+		        	console.log('下拉刷新');
+		        }
+		        // m = 3;
+		        // var __html = createHtml();
+		        // $('#order-list').html(__html);
+		        // 执行完执行方法之后必须执行回调 回调的作用是通知默认加载已经全部执行完毕，程序需要去创建iscroll或者做下拉刷新动作
+		        // console.log("下拉刷新");
+		        cb();
+		    },
+		    // iscroll的API 
+		    iscrollOptions: {
+		        scrollbars: false
+		    }
+		});
+
+		// 点击事件
+		listloading.evt('li', 'click', function (dom) {
+		    dom.remove();
+		    // $('#order-list').append(createHtml());
+		    listloading.refresh();
+		});
+	</script>
+</html>
